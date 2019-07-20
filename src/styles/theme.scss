@@ -1,0 +1,24 @@
+@import './variables';
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+
+	&:visited {
+		color: #000;
+	}
+
+	&.btn-submit {
+		padding: 8px 16px;
+		background: $submitColor;
+		border-radius: 7px;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}

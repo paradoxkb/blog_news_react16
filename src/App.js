@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Provider } from 'react-redux'
+import { BrowserRouter as Router } from 'react-router-dom'
+import configureStore from './configureStore'
+import { RouteWithSubRoutes, routes } from './router'
+import MainWrapper from './containers/MainWrapper'
+import './styles/theme.scss'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const store = configureStore()
+
+class App extends React.Component {
+    render() {
+        return (
+			<Provider store={store}>
+				<Router>
+					<MainWrapper content={this.props.children}>
+						{routes.map((route, i) => (
+							<RouteWithSubRoutes key={i} {...route} />
+						))}
+					</MainWrapper>
+				</Router>
+			</Provider>
+        )
+    }
 }
 
-export default App;
+export default App

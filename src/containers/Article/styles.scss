@@ -1,0 +1,11 @@
+@import '../../styles/variables';
+
+.article {
+	&-head {
+		text-align: center;
+	}
+
+	&-body {
+		text-align: justify;
+	}
+}

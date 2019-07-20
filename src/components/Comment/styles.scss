@@ -1,0 +1,36 @@
+@import "../../styles/variables";
+
+.comment {
+	margin: 10px 0;
+	border: 1px darken($background, 20) solid;
+	border-radius: 10px;
+
+	&-head {
+		padding: 10px;
+		color: #fff;
+		background: darken($background, 20);
+		border-radius: 10px 10px 0 0;
+	}
+
+	&-body {
+		padding: 10px;
+	}
+
+	&-new {
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		width: 400px;
+
+		textarea {
+			margin: 10px;
+			width: 100%;
+			resize: vertical;
+		}
+
+		.btn-submit {
+			align-self: flex-end;
+		}
+	}
+}
