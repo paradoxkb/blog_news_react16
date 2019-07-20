@@ -1,18 +1,31 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
-// import Api from '...'
+import * as actions from './actions'
+import * as services from './services'
 
-// worker Saga: будет запускаться на экшены типа `USER_FETCH_REQUESTED`
-function* fetchUser(action) {
+function* fetchArticlesSaga(action) {
 	try {
-		const user = yield call('/get.com', action.payload.userId);
-		yield put({type: "USER_FETCH_SUCCEEDED", user: user});
+		const articles = yield call(services.fetchArticles)
+
+		yield put(actions.getArticlesSuccess(articles))
 	} catch (e) {
-		yield put({type: "USER_FETCH_FAILED", message: e.message});
+		yield put(actions.getArticlesFailed(e))
+	}
+}
+
+function* fetchArticleSaga(action) {
+	try {
+		const article = yield call(services.fetchArticle, action.payload.id)
+		const user = yield call(services.fetchUser, article.userId)
+
+		yield put(actions.getArticleSuccess({ ...article, userDetails: user }))
+	} catch (e) {
+		yield put(actions.getArticleFailed(e))
 	}
 }
 
 function* mySaga() {
-	yield takeLatest("USER_FETCH_REQUESTED", fetchUser);
+	yield takeLatest(actions.actions.GET_ARTICLES_STARTED, fetchArticlesSaga)
+	yield takeLatest(actions.actions.GET_ARTICLE_STARTED, fetchArticleSaga)
 }
 
-export default mySaga;
+export default mySaga

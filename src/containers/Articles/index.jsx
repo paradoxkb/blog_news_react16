@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { articlesInit } from '../../utils'
+import {changeArticlesFilter, getArticlesStarted} from '../../store/actions'
 import './styles.scss'
 
 const ArticleRow = (props) => {
@@ -16,14 +16,8 @@ const ArticleRow = (props) => {
 }
 
 class Articles extends React.PureComponent {
-	constructor(props) {
-		super(props)
-
-		console.log(props)
-
-		this.state = {
-			articles: articlesInit
-		}
+	componentDidMount() {
+		this.props.getArticles()
 	}
 
 	onArticleClick = articleId => {
@@ -31,10 +25,17 @@ class Articles extends React.PureComponent {
 	}
 
 	render() {
-		const { articles } = this.state
+		const { articles } = this.props
 
 		return (
 			<div className='articles-grid'>
+				<div className='filter-row'>
+					<input
+						type='text'
+						placeholder='Type to filter...'
+						onChange={e => this.props.onChangeFilter(e.target.value || null)}
+					/>
+				</div>
 				<table cellSpacing='0'>
 					<thead>
 						<tr>
@@ -58,11 +59,20 @@ class Articles extends React.PureComponent {
 	}
 }
 
-// export default Articles
-
 export default connect(
 	(state) => ({
-		articles: ['article n']
+		articles: state.articles.filterValue
+			? state.articles.articles
+				.filter(a => (
+					a.title.includes(state.articles.filterValue) ||
+					a.text.includes(state.articles.filterValue)
+				))
+			: state.articles.articles
 	}),
-	null
+	dispatch => ({
+		getArticles: () =>
+			dispatch(getArticlesStarted()),
+		onChangeFilter: (val) =>
+			dispatch(changeArticlesFilter(val))
+	})
 )(Articles)

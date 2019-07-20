@@ -1,15 +1,13 @@
 import React from 'react'
+import { } from 'react-redux'
 import Comment from '../../components/Comment'
-import { articlesInit } from '../../utils'
 import './styles.scss'
+import {connect} from "react-redux";
+import { getArticleStarted } from "../../store/actions";
 
 class Article extends React.PureComponent {
-	constructor(props) {
-		super(props)
-
-		this.state = {
-			article: articlesInit.filter(a => a.id === props.match.params.id)[0]
-		}
+	componentDidMount() {
+		this.props.getArticle(this.props.match.params.id)
 	}
 
 	onCommentSave = comment => {
@@ -17,8 +15,8 @@ class Article extends React.PureComponent {
 	}
 
 	render() {
-		const { article } = this.state
-
+		const { article = {} } = this.props
+		console.log(this.props)
 		return (
 			<div className='article'>
 				<div className='article-head'>
@@ -44,4 +42,12 @@ class Article extends React.PureComponent {
 	}
 }
 
-export default Article
+export default connect(
+	(state) => ({
+		article: state.article.article
+	}),
+	dispatch => ({
+		getArticle: (articleId) =>
+			dispatch(getArticleStarted(articleId))
+	})
+)(Article)
