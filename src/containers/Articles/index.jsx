@@ -3,15 +3,14 @@ import { connect } from 'react-redux'
 import {changeArticlesFilter, getArticlesStarted} from '../../store/actions'
 import './styles.scss'
 
-const ArticleRow = (props) => {
+const ArticleItem = (props) => {
 	const { article, onArticleClick } = props
 
 	return (
-		<tr className='article-row' onClick={() => onArticleClick(article.id)}>
-			<td>{article.id}</td>
-			<td>{article.title}</td>
-			<td>{article.createdAt}</td>
-		</tr>
+		<div className='article-single' onClick={() => onArticleClick(article.id)}>
+			<h3>{article.title}</h3>
+			<div>{article.description}</div>
+		</div>
 	)
 }
 
@@ -36,7 +35,15 @@ class Articles extends React.PureComponent {
 						onChange={e => this.props.onChangeFilter(e.target.value || null)}
 					/>
 				</div>
-				<table cellSpacing='0'>
+				{articles.map((a, i) => (
+					<ArticleItem
+						key={i}
+						article={a}
+						onArticleClick={this.onArticleClick}
+					/>
+				))}
+
+				{/*<table cellSpacing='0'>
 					<thead>
 						<tr>
 							<th>ID</th>
@@ -53,7 +60,7 @@ class Articles extends React.PureComponent {
 						/>
 					))}
 					</tbody>
-				</table>
+				</table>*/}
 			</div>
 		)
 	}

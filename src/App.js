@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
 import configureStore from './configureStore'
@@ -11,15 +11,17 @@ const store = configureStore()
 class App extends React.Component {
     render() {
         return (
-			<Provider store={store}>
-				<Router>
-					<MainWrapper content={this.props.children}>
-						{routes.map((route, i) => (
-							<RouteWithSubRoutes key={i} {...route} />
-						))}
-					</MainWrapper>
-				</Router>
-			</Provider>
+			<Suspense fallback={<div>Loading...</div>}>
+				<Provider store={store}>
+					<Router>
+						<MainWrapper content={this.props.children}>
+							{routes.map((route, i) => (
+								<RouteWithSubRoutes key={i} {...route} />
+							))}
+						</MainWrapper>
+					</Router>
+				</Provider>
+			</Suspense>
         )
     }
 }
