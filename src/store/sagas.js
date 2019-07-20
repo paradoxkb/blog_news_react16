@@ -6,7 +6,12 @@ function* fetchArticlesSaga() {
 	try {
 		const articles = yield call(services.fetchArticles)
 
-		yield put(actions.getArticlesSuccess(articles))
+		if (Array.isArray(articles)) {
+			yield put(actions.getArticlesSuccess(articles))
+		} else if (articles.error) {
+			console.error(articles.error)
+			throw new Error(articles.error)
+		}
 	} catch (e) {
 		yield put(actions.getArticlesFailed(e))
 	}
