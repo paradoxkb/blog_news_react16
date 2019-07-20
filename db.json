@@ -2,9 +2,9 @@
 	"articles": [
 		{
 			"id": "1",
-			"title": "Post 1",
+			"title": "Wittgenstein's Legacy: The Principles of the Private Language Arguments",
 			"userId": "1",
-			"text": "post 1 text",
+			"text": "In the absence of a crystal ball, one cannot say what Wittgenstein's role in 21st century philosophy will be. But one can attempt to articulate his philosophical legacy to the 21st century. As he remarked early in the 1930s, ‘a new method has been found’. Of course, that a new method has been found does not mean that people will use it, or even understand how to apply it. That a cure for itches has been found does not mean that people will cease to have itches or will stop scratching themselves. But it does mean that it is incumbent upon those who understand the new method or methods and who know how to use them to explain them to the next generation, to apply them to the problems of philosophy, both old and new, and to sciences which are enmeshed in conceptual difficulties. For this much is clear. Wittgenstein showed us the ubiquity of conceptual confusion, both among philosophers, among empirical scientists, and within the culture at large. Wittgenstein was the first philosopher to show us clearly why philosophy has a right, if not indeed a duty, to be a tribunal of sense before which scientists may be arraigned when they transgress the bounds of sense in their reasoning, in so called cognitive science, cognitive neuroscience, empirical psychology, economics, biology and physics. This provides a huge field for critical reflection among philosophers who have understood Wittgenstein's achievements and methods. To elaborate Wittgenstein's manifold methodological insights, his conceptual cartography in the domains that he investigated, and his critical achievements in blocking what appear to be irresistible or deeply appealing lines of thought is far too large a subject for a single lecture. What I wish to present to you today is a survey of methods and principles evident in the private language arguments that are elaborated in Investigations §243‐§315.1 They have widespread application in contemporary philosophy and in contemporary sciences of mind and brain. ",
 			"createdAt": "7/20/2019, 5:15:03 PM",
 			"comments": [
 				{
@@ -29,9 +29,9 @@
 		},
 		{
 			"id": "2",
-			"title": "Post 2",
+			"title": "Bypassing anti-incognito detection in Google Chrome",
 			"userId": "1",
-			"text": "post 2 text",
+			"text": "Incognito or private browsing is present in all modern browsers. This mode helps people avoid unwanted cookies, stateful trackers and is also useful in reading articles on newspaper websites since some of them limit the users to a certain number of free articles per day or simply block access if opened in incognito mode. Some of the things in this post might be similar or different for other families of browsers but I’m only going to focus on Chromium based browsers, more specifically Google Chrome. Detecting Incognito window before Chrome 74 Before Chrome 74, there was a bug which a lot of websites exploited to detect whether a user is visiting the website in Chrome’s Incognito mode. The websites simply had to attempt to use the FileSystem API, which is used to store temporary or permanent files. This API was disabled in the Incognito mode but was present in the non-incognito mode, thus creating a difference which was exploited to detect if a user was browsing a website using the incognito mode and block these users from viewing the site’s content.",
 			"createdAt": "7/20/2019, 5:15:03 PM",
 			"comments": [
 				{
@@ -56,16 +56,16 @@
 		},
 		{
 			"id": "3",
-			"title": "Post 3",
+			"title": "Centenarian Radio Amateur’s Efforts Helped Pave the Way to the Moon",
 			"userId": "2",
-			"text": "post 3 text",
+			"text": "07/18/2019 \nThe Nashville Tennessean newspaper recently featured the story of a 104-year-old ARRL member who contributed to NASA’s effort to put the first humans on the moon 50 years ago this month. Cary Nettles, W5SRR, of Columbia, Tennessee — who calls himself the nation’s oldest rocket scientist still alive — was a NASA project manager and research engineer on rocket propulsion systems in the 1950s and 1960s. While working on the Centaur second-stage rocket program, Nettles, a Louisiana State University engineering graduate, determined that rocket engine failures NASA was experiencing were a result of misdirected exhaust destroying the vehicles’ engines. Nettles told the Tennessean he came up with an “exhaust pipe” that solved the problem. In May 1966, an Atlas-Centaur launcher propelled the first Surveyor lander toward the moon. That year, NASA awarded Nettles and colleague Ed Jonash with its Distinguished Service Medal for “their superhuman effort in turning the troubled rocket into a reliable upper stage,” according to a 2004 NASA publication, “Taming Liquid Hydrogen — The Centaur Upper Stage Rocket 1958 – 2002.”",
 			"createdAt": "7/20/2019, 5:15:03 PM"
 		},
 		{
 			"id": "4",
-			"title": "Post 4",
+			"title": "What a Newfound Kingdom Means for the Tree of Life",
 			"userId": "1",
-			"text": "post 4 text",
+			"text": "From Quanta Magazine (find original story here). \nThe tree of life just got another major branch. Researchers recently found a certain rare and mysterious microbe called a hemimastigote in a clump of Nova Scotian soil. Their subsequent analysis of its DNA revealed that it was neither animal, plant, fungus nor any recognized type of protozoan—that it in fact fell far outside any of the known large categories for classifying complex forms of life (eukaryotes). Instead, this flagella-waving oddball stands as the first member of its own “supra-kingdom” group, which probably peeled away from the other big branches of life at least a billion years ago. “It’s the sort of result you hope to see once in a career,” said Alastair Simpson, a microbiologist at Dalhousie University who led the study.",
 			"createdAt": "7/20/2019, 5:15:03 PM",
 			"comments": [
 				{
@@ -90,23 +90,23 @@
 		},
 		{
 			"id": "5",
-			"title": "Post 5",
+			"title": "Grace and Favor",
 			"userId": "3",
-			"text": "post 5 text",
+			"text": "Him: All I know is I’d be quite happy to be someone else on the off chance I’d be a genius, a great man. Yes, I have to admit it. There’s something there which speaks to me. I’ve never heard a single genius praised without such tributes to him making me secretly enraged. I get envious. When I learn about some detail of their private lives that demeans them, I listen with pleasure. That brings us closer together, and I bear my mediocrity more easily. So I’ve been mediocre, and I’m angry with my mediocrity. Yes, yes, I am mediocre and angry. I’ve never heard the overture to Les Indes Galantes or heard anyone sing “Profonds abîmes du Ténaire,” “Nuit, éternelle nuit,” without feeling pain and saying to myself, “There’s something you’d never create.” Hence I was jealous of my uncle, and if at his death there’d been some fine compositions for the keyboard in his portfolio, I wouldn’t have hesitated to remain myself and to be him as well.",
 			"createdAt": "7/20/2019, 5:15:03 PM"
 		},
 		{
 			"id": "6",
-			"title": "Post 6",
+			"title": "The Impossible Dream",
 			"userId": "2",
-			"text": "post 6 text",
+			"text": "These words, from Thomas Jefferson’s Declaration of Independence, are so familiar that it is easy to assume their meaning is obvious. The puzzle lies in the assertion that we have a right to pursue happiness. John Locke, in his Two Treatises of 1690, said we are all created equal and have inalienable rights, including those to life and liberty. But for Locke the third crucial right was the right to property. In Locke’s Essay Concerning Human Understanding, also published in 1690, he wrote about the pursuit of happiness, but it follows from his account there that there can be no right to pursue happiness because we will pursue happiness come what may. The pursuit of happiness is a law of human nature (of what we now call psychology), just as gravity is a law of physics. A right to pursue happiness is no more necessary than a right for water to run downhill.",
 			"createdAt": "7/20/2019, 5:15:03 PM"
 		},
 		{
 			"id": "7",
-			"title": "Post 7",
+			"title": "Government Work",
 			"userId": "3",
-			"text": "post 7 text",
+			"text": "In the summer of 2016, a dizzying photograph from Chennai, in the Indian state of Tamil Nadu, circulated through international media outlets. The photo shows about a thousand Indian schoolchildren dressed in white and blue uniforms, their bodies arranged in rows of twos and fours and fives, their arms clasped in acute triangles above their heads. On the ground, there must have been pandemonium: young children, fatigued by the scorching June heat, confused by what they were doing or why they were being told to stand still. But from above, an aerial camera caught the shot, decoding the labyrinthine mess of blazing, colorful bodies as they spelled out a message: keep smiling. The shoot served as both the debut of—and, in its grandstanding way, a metaphor for—the Indian government’s latest addition to its sprawling bureaucracy: the Ministry of Happiness. Initially launched in the landlocked state of Madhya Pradesh, the ministry was set up, in the words preferred by Prime Minister Narendra Modi, to “put a smile on every face” in one of India’s most impoverished provinces. The state is best known for its tiger sanctuaries, its high farmer-suicide rates, and the Bhopal gas leak in 1984 that exposed at least half a million people to a highly toxic gas—still considered the world’s worst industrial disaster. “It matters how happy people are in Madhya Pradesh,” promised a government blog post that featured an image of an Indian family of four ensconced in a cheery bear hug. “Therefore, Madhya Pradesh government is ready to take on the worries of its citizens and bring cheers to the life of common man.”",
 			"createdAt": "7/20/2019, 5:15:03 PM"
 		}
 	],

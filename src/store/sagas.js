@@ -2,7 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects'
 import * as actions from './actions'
 import * as services from './services'
 
-function* fetchArticlesSaga(action) {
+function* fetchArticlesSaga() {
 	try {
 		const articles = yield call(services.fetchArticles)
 
