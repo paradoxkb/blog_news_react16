@@ -1,14 +1,16 @@
 import React from 'react'
-import {connect} from "react-redux"
+import {connect} from 'react-redux'
 import Comment from '../../components/Comment'
+import Spinner from '../../components/Spinner'
+import { getArticleStarted, resetArticle, userCommentedArticle } from '../../store/actions'
 import './styles.scss'
-import { getArticleStarted, resetArticle, userCommentedArticle } from "../../store/actions"
 
 class Article extends React.PureComponent {
 	static getDerivedStateFromProps(props, state) {
 		return {
 			...state,
-			article: props.article
+			article: props.article,
+			isLoading: props.isLoading
 		}
 	}
 
@@ -16,7 +18,8 @@ class Article extends React.PureComponent {
 		super(props)
 
 		this.state = {
-			article: props.article
+			article: props.article,
+			isLoading: props.isLoading
 		}
 	}
 
@@ -39,9 +42,9 @@ class Article extends React.PureComponent {
 	}
 
 	render() {
-		const { article } = this.state
+		const { article, isLoading } = this.state
 
-		return (
+		return isLoading ? <Spinner /> : (
 			<div className='article'>
 				<div className='article-head'>
 					<h4>{article.title}</h4>
@@ -73,7 +76,8 @@ class Article extends React.PureComponent {
 
 export default connect(
 	(state) => ({
-		article: state.article.article
+		article: state.article.article,
+		isLoading: state.article.loading
 	}),
 	dispatch => ({
 		getArticle: (articleId) =>

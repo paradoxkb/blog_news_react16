@@ -32,5 +32,9 @@
 		.btn-submit {
 			align-self: flex-end;
 		}
+
+		@media (max-width: 628px) {
+			max-width: 100%;
+		}
 	}
 }

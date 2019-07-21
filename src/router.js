@@ -19,7 +19,7 @@ export const routes = [
 		component: lazy(() => import('./containers/Articles'))
 	},
 	{
-		path: '/article/:id',
+		path: '/articles/:id',
 		exact: true,
 		component: lazy(() => import('./containers/Article'))
 	}

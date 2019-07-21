@@ -14,7 +14,7 @@ class App extends React.Component {
 			<Suspense fallback={<div>Loading...</div>}>
 				<Provider store={store}>
 					<Router>
-						<MainWrapper content={this.props.children}>
+						<MainWrapper>
 							{routes.map((route, i) => (
 								<RouteWithSubRoutes key={i} {...route} />
 							))}
