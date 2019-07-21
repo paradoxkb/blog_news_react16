@@ -68,8 +68,9 @@ module.exports = {
 	entry: './src/index.js',
 	output: {
 		filename: '[name].[hash].js',
-		chunkFilename: '[name].[hash].js',
-		path: path.resolve(__dirname, 'public/js')
+		chunkFilename: '[name][hash].js',
+		path: path.resolve(__dirname, 'public/js'),
+		publicPath: '/js/'
 	},
 	module: {
 		rules
