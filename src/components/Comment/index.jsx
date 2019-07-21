@@ -2,16 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './styles.scss'
 
+const initComment = {
+	userId: null,
+	articleId: null,
+	createdAt: new Date().toLocaleString(),
+	text: '',
+}
+
 class Comment extends React.PureComponent {
 	constructor(props) {
 		super(props)
 
 		this.state = {
-			comment: props.comment || {
-				userId: null,
-				createdAt: new Date().toLocaleString(),
-				text: '',
-			}
+			comment: props.comment || { ...initComment }
 		}
 	}
 
@@ -21,6 +24,13 @@ class Comment extends React.PureComponent {
 				...this.state.comment,
 				text: event.target.value
 			}
+		})
+	}
+
+	onSave = () => {
+		this.props.onSave(this.state.comment)
+		this.setState({
+			comment: { ...initComment }
 		})
 	}
 
@@ -40,7 +50,7 @@ class Comment extends React.PureComponent {
 			: (
 				<div className='comment-new'>
 					<textarea rows={7} value={comment.text} onChange={this.onChangeText}></textarea>
-					<a className='btn-submit' onClick={() => this.props.onSave(comment)}>Save</a>
+					<a className='btn-submit' onClick={this.onSave}>Save</a>
 				</div>
 			)
 
@@ -50,7 +60,7 @@ class Comment extends React.PureComponent {
 
 Comment.propTypes = {
 	comment: PropTypes.object,
-	onSave: PropTypes.func.isRequired
+	onSave: PropTypes.func
 }
 
 export default Comment

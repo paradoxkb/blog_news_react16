@@ -1,26 +1,53 @@
 import React from 'react'
-import { } from 'react-redux'
+import {connect} from "react-redux"
 import Comment from '../../components/Comment'
 import './styles.scss'
-import {connect} from "react-redux";
-import { getArticleStarted } from "../../store/actions";
+import { getArticleStarted, resetArticle, userCommentedArticle } from "../../store/actions"
 
 class Article extends React.PureComponent {
+	static getDerivedStateFromProps(props, state) {
+		return {
+			...state,
+			article: props.article
+		}
+	}
+
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			article: props.article
+		}
+	}
+
 	componentDidMount() {
 		this.props.getArticle(this.props.match.params.id)
 	}
 
 	onCommentSave = comment => {
-		alert('comment ' + comment.id + ' saved')
+		this.props.saveComment(
+			{
+				...comment,
+				userId: this.props.article.userId,
+				articleId: this.props.article.id
+			}
+		)
+	}
+
+	componentWillUnmount() {
+		this.props.resetArticle()
 	}
 
 	render() {
-		const { article = {} } = this.props
-		console.log(this.props)
+		const { article } = this.state
+
 		return (
 			<div className='article'>
 				<div className='article-head'>
 					<h4>{article.title}</h4>
+				</div>
+				<div className='article-info'>
+					{article.id && `Created ${article.createdAt} by ${article.userDetails.name}`}
 				</div>
 				<div className='article-body'>
 					{article.text}
@@ -30,12 +57,14 @@ class Article extends React.PureComponent {
 						<Comment
 							key={i}
 							comment={comment}
-							onSave={this.onCommentSave}
+							onSave={null}
 						/>
 					))}
-					<Comment
-						onSave={this.onCommentSave}
-					/>
+					{article.id && (
+						<Comment
+							onSave={this.onCommentSave}
+						/>
+					)}
 				</div>
 			</div>
 		)
@@ -48,6 +77,10 @@ export default connect(
 	}),
 	dispatch => ({
 		getArticle: (articleId) =>
-			dispatch(getArticleStarted(articleId))
+			dispatch(getArticleStarted(articleId)),
+		resetArticle: () =>
+			dispatch(resetArticle()),
+		saveComment: (data) =>
+			dispatch(userCommentedArticle(data))
 	})
 )(Article)

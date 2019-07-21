@@ -3,7 +3,7 @@
 .main-wrapper {
 	margin: 0 auto;
 	width: 70%;
-	height: 100vh;
+	min-height: 100vh;
 	border: 1px solid darken($background, 10);
 	background: lighten($background, 10);
 

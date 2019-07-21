@@ -1,27 +1,30 @@
 @import '../../styles/variables';
 
 .articles-grid {
-	table {
-		width: 100%;
-		text-align: center;
-
-		td {
-			padding: 10px 5px;
-		}
-
-		tbody {
-			tr {
-				&:hover {
-					cursor: pointer;
-					background: lighten($background, 15);
-					border: 1px solid #000000;
-				}
-			}
-		}
-	}
-
 	.filter-row {
 		margin: 20px;
 		text-align: center;
+
+		input {
+			max-width: 100%;
+		}
+	}
+}
+
+.article-single {
+	a {
+		text-align: center;
+		color: darken($background, 30);
+
+		&:visited {
+			color: darken($background, 30);
+		}
+	}
+
+	&-descr {
+		margin: 0 auto;
+		width: 60%;
+		font-style: italic;
+		text-align: justify;
 	}
 }

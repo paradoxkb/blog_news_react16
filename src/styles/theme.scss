@@ -22,3 +22,9 @@ a {
 		}
 	}
 }
+
+@media (max-width: 372px) {
+	.filter-row {
+		display: none;
+	}
+}

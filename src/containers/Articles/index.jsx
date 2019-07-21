@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {changeArticlesFilter, getArticlesStarted} from '../../store/actions'
 import './styles.scss'
@@ -8,8 +9,8 @@ const ArticleItem = (props) => {
 
 	return (
 		<div className='article-single' onClick={() => onArticleClick(article.id)}>
-			<h3>{article.title}</h3>
-			<div>{article.description}</div>
+			<Link to={`/articles/${article.id}`}><h3>{article.title}</h3></Link>
+			<div className='article-single-descr'>{article.description}</div>
 		</div>
 	)
 }
@@ -32,6 +33,7 @@ class Articles extends React.PureComponent {
 					<input
 						type='text'
 						placeholder='Type to filter...'
+						defaultValue={this.props.filterValue || ''}
 						onChange={e => this.props.onChangeFilter(e.target.value || null)}
 					/>
 				</div>
@@ -42,25 +44,6 @@ class Articles extends React.PureComponent {
 						onArticleClick={this.onArticleClick}
 					/>
 				))}
-
-				{/*<table cellSpacing='0'>
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Title</th>
-							<th>Date</th>
-						</tr>
-					</thead>
-					<tbody>
-					{articles.map((a, i) => (
-						<ArticleRow
-							key={i}
-							article={a}
-							onArticleClick={this.onArticleClick}
-						/>
-					))}
-					</tbody>
-				</table>*/}
 			</div>
 		)
 	}
@@ -74,7 +57,8 @@ export default connect(
 					a.title.includes(state.articles.filterValue) ||
 					a.text.includes(state.articles.filterValue)
 				))
-			: state.articles.articles
+			: state.articles.articles,
+		filterValue: state.articles.filterValue
 	}),
 	dispatch => ({
 		getArticles: () =>

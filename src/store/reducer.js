@@ -12,6 +12,7 @@ const initialArticle = {
 	loading: false,
 	article: {
 		id: null,
+		description: null,
 		title: null,
 		text: null,
 		createdAt: null,
@@ -74,6 +75,16 @@ function articleReducer (state = initialArticle, action) {
 				loading: false,
 				error: action.payload
 			}
+		case actions.ARTICLE_COMMENTS_UPDATED:
+			return {
+				...state,
+				article: {
+					...state.article,
+					comments: action.payload
+				}
+			}
+		case actions.RESET_ARTICLE:
+			return { ...initialArticle }
 		default:
 			return state
 	}
